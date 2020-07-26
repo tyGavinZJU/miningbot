@@ -98,4 +98,5 @@ sha2-asm = "0.5.3"
 members = [
     ".", 
     "testnet/stacks-node",
-    "testnet/bitcoin-neon-controller"]
+    "testnet/bitcoin-neon-controller",
+    "testnet/mining-bot"]
