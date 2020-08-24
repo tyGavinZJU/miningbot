@@ -18,11 +18,13 @@ Mining Bot includes a **stacks-blockchain node** which provides the feature to p
 ### public data
 - BTC/STX Price
     - Using binance API
-- Chain Data
+        - https://api.binance.com/api/v3/avgPrice?symbol=STXUSDT
+        - https://api.binance.com/api/v3/avgPrice?symbol=STXBTC
+- Chain Data(https://blockstack.github.io/stacks-blockchain-api/)
     - Block Data(Block Height)
     - Btc amount burned in lastest Block(not available)
 
 ### mining-bot Client
 
 - integrate public Data and PoX API 
-- front end client
+- frontend client
