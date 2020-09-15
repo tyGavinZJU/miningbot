@@ -2,9 +2,19 @@
 rpc_bind = "0.0.0.0:20443"
 p2p_bind = "0.0.0.0:20444"
 bootstrap_node = "048dd4f26101715853533dee005f0915375854fd5be73405f679c1917a5d4d16aaaf3c4c0d7a9c132a36b8c5fe1287f07dad8c910174d789eb24bdfb5ae26f5f27@argon.blockstack.org:20444"
-# Enter your private key here!
 seed = "6041b7d216f9ac7744470bebe72c62382d153b9394ee78a16678e820791cf02401"
 miner = true
+
+# {
+#  "mnemonic": "raise aerobic rib escape scene foil food adapt course rebel timber village theory orange powder fruit about during food brass release emerge general leg",
+#  "keyInfo": {
+#    "privateKey": "6041b7d216f9ac7744470bebe72c62382d153b9394ee78a16678e820791cf02401",
+#    "address": "ST3YTDS27Y8YW155EMNQ53ZE655FHPF0TAEVRYMV5",
+#    "btcAddress": "n4e9BRjiNm8ANt94eyoMofxNQoKQxHN2jJ",
+#    "index": 0
+#  }
+# }
+
 
 [burnchain]
 chain = "bitcoin"
