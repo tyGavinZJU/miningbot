@@ -28,3 +28,8 @@ Mining Bot includes a **stacks-blockchain node** which provides the feature to p
 
 - integrate public Data and PoX API 
 - frontend client
+
+
+### mining-client connection
+- python subcommandcall(mining-bot start/kill -9)
+- Bitcoin node connection
