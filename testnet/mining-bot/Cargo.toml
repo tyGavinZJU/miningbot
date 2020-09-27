@@ -1,14 +1,13 @@
 [package]
-name = "mining-bot"
-version = "0.0.1"
-authors = ["Gavin Gao <gavin@blockstack.com>","Ludo Galabru <ludovic@blockstack.com>"]
+name = "stacks-node"
+version = "0.1.0"
+authors = ["Ludo Galabru <ludovic@blockstack.com>"]
 edition = "2018"
 
 [dependencies]
 lazy_static = "1.4.0"
 pico-args = "0.3.1"
 rand = "=0.7.2"
-secp256k1 = { version = "0.11.5" }
 serde = "1"
 serde_derive = "1"
 serde_json = { version = "1.0", features = ["arbitrary_precision", "raw_value"] }
@@ -18,6 +17,8 @@ async-h1 = "=1.0"
 async-std = { version = "<1.6", features = ["attributes"] }
 http-types = "1.0"
 base64 = "0.12.0"
+backtrace = "0.3.50"
+libc = "0.2"
 
 [dev-dependencies]
 warp = "0.2"
@@ -25,7 +26,7 @@ tokio = "0.2.21"
 reqwest = { version = "0.10", features = ["blocking", "json", "rustls"] }
 
 [[bin]]
-name = "mining-bot"
+name = "stacks-node"
 path = "src/main.rs"
 
 [features]
