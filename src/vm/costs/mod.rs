@@ -5,6 +5,7 @@ use std::{fmt, cmp};
 use vm::types::TypeSignature;
 use vm::Value;
 use std::convert::TryFrom;
+use rusqlite::types::{ToSql, ToSqlOutput, FromSql, FromSqlResult, ValueRef};
 
 type Result<T> = std::result::Result<T, CostErrors>;
 
@@ -204,6 +205,23 @@ impl fmt::Display for ExecutionCost {
     }
 }
 
+impl ToSql for ExecutionCost {
+    fn to_sql(&self) -> rusqlite::Result<ToSqlOutput> {
+        let val = serde_json::to_string(self)
+            .expect("FAIL: could not serialize ExecutionCost");
+        Ok(ToSqlOutput::from(val))
+    }
+}
+
+impl FromSql for ExecutionCost {
+    fn column_result(value: ValueRef) -> FromSqlResult<ExecutionCost> {
+        let str_val = String::column_result(value)?;
+        let parsed = serde_json::from_str(&str_val)
+            .expect("CORRUPTION: failed to parse ExecutionCost from DB");
+        Ok(parsed)
+    }
+}
+
 pub trait CostOverflowingMath <T> {
     fn cost_overflow_mul(self, other: T) -> Result<T>;
     fn cost_overflow_add(self, other: T) -> Result<T>;
@@ -310,7 +328,7 @@ impl CostFunctions {
             CostFunctions::Linear(a, b) => { a.cost_overflow_mul(input)?
                                              .cost_overflow_add(*b) }
             CostFunctions::LogN(a, b) => {
-                // a*input*log(input)) + b
+                // a*log(input)) + b
                 //  and don't do log(0).
                 int_log2(cmp::max(input, 1))
                     .ok_or_else(|| CostErrors::CostOverflow)?
