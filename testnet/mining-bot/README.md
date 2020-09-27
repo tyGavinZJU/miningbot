@@ -33,3 +33,6 @@ Mining Bot includes a **stacks-blockchain node** which provides the feature to p
 ### mining-client connection
 - python subcommandcall(mining-bot start/kill -9)
 - Bitcoin node connection
+
+
+- nc -vz argon.blockstack.org 18443

@@ -523,6 +523,7 @@ impl BurnchainConfig {
     }
 
     pub fn get_rpc_socket_addr(&self) -> SocketAddr {
+        //print!(self.peer_host);
         let mut addrs_iter = format!("{}:{}", self.peer_host, self.rpc_port).to_socket_addrs().unwrap();
         let sock_addr = addrs_iter.next().unwrap();
         sock_addr
